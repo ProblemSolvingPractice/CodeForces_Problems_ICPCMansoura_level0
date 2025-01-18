@@ -6,4 +6,4 @@
 # Or directories
 !*/
 !.gitignore
-!.md
+!*.md

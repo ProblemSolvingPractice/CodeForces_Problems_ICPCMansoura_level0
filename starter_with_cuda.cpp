@@ -18,16 +18,16 @@ int main(void){
         y[i] = 2.0f;
     }
 
+    // Run kernel on 1M elements on the CPU
+    add(N, x, y);
+
     float maxError = 0.0f;
     for (int i=0; i<N; i++){
-        maxError = fmax(maxError,fabs(y[i]-3.0f))
+        maxError = fmax(maxError,fabs(y[i]-3.0f));
         if (maxError > 0)
             cout << "Max Error: " << maxError;
     }
 
-    // Run kernel on 1M elements on the CPU
-    add(N, x, y);
-    
     delete [] x;
     delete [] y;
     return 0;

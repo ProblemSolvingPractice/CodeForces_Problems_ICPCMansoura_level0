@@ -9,7 +9,7 @@ void add(int n, float* x, float* y){
 }
 
 int main(void){
-    int N = 10;
+    int N = 1<<20;
     
     float* x = new float[N];
     float* y = new float[N];
@@ -17,9 +17,17 @@ int main(void){
         x[i] = 1.0f;
         y[i] = 2.0f;
     }
-    cout << *y << " \n"; 
-    add(N,x,y);
-    cout << *y << endl;
+
+    float maxError = 0.0f;
+    for (int i=0; i<N; i++){
+        maxError = fmax(maxError,fabs(y[i]-3.0f))
+        if (maxError > 0)
+            cout << "Max Error: " << maxError;
+    }
+
+    // Run kernel on 1M elements on the CPU
+    add(N, x, y);
+    
     delete [] x;
     delete [] y;
     return 0;
